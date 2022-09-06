@@ -82,7 +82,7 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
     }
 
     @Override
-    public CartScreen clickGoToCart() {
+    public CartScreenBase clickGoToCart() {
         return null;
     }
 
@@ -100,5 +100,10 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
     @Override
     public void clickOnOptionMenu() {
 
+    }
+
+    @Override
+    public String getCatalogTitle() {
+        return null;
     }
 }

@@ -90,4 +90,9 @@ public class IosBackPackProduct extends BackPackProductBase {
         minusButton.click();
     }
 
+    @Override
+    public void clickAddToCartButton() {
+        addToCartButton.click();
+    }
+
 }

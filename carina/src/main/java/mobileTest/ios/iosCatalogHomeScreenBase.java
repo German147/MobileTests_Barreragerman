@@ -36,6 +36,9 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     @FindBy(xpath = "(//XCUIElementTypeOther[@name=\"ProductItem\"])[4]")
     private ExtendedWebElement fleeceTShirt;
 
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Products\"`]")
+    private ExtendedWebElement catalogTitle;
+
     public iosCatalogHomeScreenBase(WebDriver driver) {
         super(driver);
     }
@@ -91,9 +94,9 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     }
 
     @Override
-    public CartScreen clickGoToCart() {
+    public CartScreenBase clickGoToCart() {
         goToCart.click();
-        return initPage(getDriver(), CartScreen.class);
+        return initPage(getDriver(), CartScreenBase.class);
     }
 
     @Override
@@ -101,7 +104,6 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
         catalog.click();
         return initPage(getDriver(), CatalogHomeScreenBase.class);
     }
-
 
     @Override
     public void clickOnSortingItem() {
@@ -111,6 +113,11 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     @Override
     public void clickOnOptionMenu() {
         throw new UnsupportedOperationException(THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID);
+    }
+
+    @Override
+    public String getCatalogTitle() {
+        return catalogTitle.getText();
     }
 
 

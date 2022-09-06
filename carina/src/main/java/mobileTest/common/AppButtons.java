@@ -9,7 +9,7 @@ public abstract class AppButtons extends AbstractPage {
     }
     public abstract MenuScreenBase clickOnMenu();
 
-    public abstract CartScreen clickGoToCart();
+    public abstract CartScreenBase clickGoToCart();
 
     public abstract CatalogHomeScreenBase clickOnCatalog();
 

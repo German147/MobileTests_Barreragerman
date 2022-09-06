@@ -25,12 +25,14 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
     public abstract void clickAddToCart();
     public abstract MenuScreenBase clickOnMenu();
 
-    public abstract CartScreen clickGoToCart();
+    public abstract CartScreenBase clickGoToCart();
 
     public abstract CatalogHomeScreenBase clickOnCatalog();
 
     public abstract void clickOnSortingItem();
 
     public abstract void clickOnOptionMenu();
+
+    public abstract String getCatalogTitle();
 
 }

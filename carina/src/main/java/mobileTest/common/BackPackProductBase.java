@@ -28,4 +28,6 @@ public abstract class BackPackProductBase extends AbstractPage {
 
     public abstract void clickOnProductMinusButton();
 
+    public abstract void clickAddToCartButton();
+
 }

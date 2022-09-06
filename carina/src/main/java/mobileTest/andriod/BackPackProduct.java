@@ -67,4 +67,9 @@ public class BackPackProduct extends BackPackProductBase {
 
     }
 
+    @Override
+    public void clickAddToCartButton() {
+
+    }
+
 }
