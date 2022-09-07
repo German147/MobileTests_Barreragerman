@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import static com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type.IOS_PHONE;
 
 @DeviceType(pageType = IOS_PHONE, parentClass = CatalogHomeScreenBase.class)
-public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
+public class CatalogHome extends CatalogHomeScreenBase {
 
     private static final String THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID = "This method is not yet implemented for iOS";
 
@@ -39,7 +39,10 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Products\"`]")
     private ExtendedWebElement catalogTitle;
 
-    public iosCatalogHomeScreenBase(WebDriver driver) {
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"StarUnSelected Icons\"`][1]")
+    private ExtendedWebElement submitButton;
+
+    public CatalogHome(WebDriver driver) {
         super(driver);
     }
 
@@ -78,7 +81,7 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     }
 
     @Override
-    public ProductsBase clickOnSubmitting() {
+    public AlertScreenBase clickOnContinueOK() {
         return null;
     }
 
@@ -118,6 +121,11 @@ public class iosCatalogHomeScreenBase extends CatalogHomeScreenBase {
     @Override
     public String getCatalogTitle() {
         return catalogTitle.getText();
+    }
+
+    @Override
+    public String checkSubmitButton() {
+        return submitButton.getText();
     }
 
 

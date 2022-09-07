@@ -3,15 +3,15 @@ package mobileTest.andriod;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import mobileTest.common.*;
-import mobileTest.common.BackPackProductBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CatalogHomeScreenBase.class)
-public class CatalogHomeScreen extends CatalogHomeScreenBase {
-    public CatalogHomeScreen(WebDriver driver) {
+public class CatalogHome extends CatalogHomeScreenBase {
+    public CatalogHome(WebDriver driver) {
         super(driver);
     }
+
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Back Packs\"]")
     private ExtendedWebElement backPack;
@@ -31,42 +31,11 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Fleece T-Shirt\"]")
     private ExtendedWebElement fleeceTShirt;
 
-    @Override
-    public BackPackProductBase clickOnBackPack() {
-        backPack.click();
-        return initPage(getDriver(), BackPackProductBase.class);
-    }
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/closeBt")
+    private ExtendedWebElement continueButton;
 
     @Override
-    public BikeLight clickOnBikeLight() {
-        lightBike.click();
-        return initPage(getDriver(),BikeLight.class);
-    }
-
-    @Override
-    public BoltShirtBase clickOnBoltTShirt() {
-       boltTshirt.click();
-        return initPage(getDriver(),BoltShirtBase.class);
-    }
-
-    @Override
-    public FleeceTShirtBase clickOnFleeceTShirt() {
-      fleeceTShirt.click();
-        return initPage(getDriver(), FleeceTShirtBase.class);
-    }
-
-    @Override
-    public ProductsBase clickOnLabOnesie() {
-        return null;
-    }
-
-    @Override
-    public ProductsBase clickOnTestAllTShirt() {
-        return null;
-    }
-
-    @Override
-    public ProductsBase clickOnSubmitting() {
+    public AlertScreenBase clickOnContinueOK() {
         return null;
     }
 
@@ -77,8 +46,7 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
 
     @Override
     public MenuScreenBase clickOnMenu() {
-        menuButton.click();
-        return initPage(getDriver(), MenuScreenBase.class);
+        return null;
     }
 
     @Override
@@ -88,8 +56,7 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
 
     @Override
     public CatalogHomeScreenBase clickOnCatalog() {
-        catalog.click();
-        return initPage(getDriver(), CatalogHomeScreenBase.class);
+        return null;
     }
 
     @Override
@@ -106,4 +73,11 @@ public class CatalogHomeScreen extends CatalogHomeScreenBase {
     public String getCatalogTitle() {
         return null;
     }
+
+    @Override
+    public String checkSubmitButton() {
+        return null;
+    }
+
+
 }

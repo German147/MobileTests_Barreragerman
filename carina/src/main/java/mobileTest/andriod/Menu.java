@@ -1,25 +1,28 @@
-package mobileTest.ios;
+package mobileTest.andriod;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import mobileTest.common.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
-import static com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type.IOS_PHONE;
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = MenuScreenBase.class)
+public class Menu extends MenuScreenBase {
 
-@DeviceType(pageType = IOS_PHONE, parentClass = MenuScreenBase.class)
-public class iosMenuScreen extends MenuScreenBase {
-    public iosMenuScreen(WebDriver driver) {
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
+    private ExtendedWebElement catalog;
+
+    public Menu(WebDriver driver) {
         super(driver);
     }
 
-
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Catalog-tab-item\"`]")
-    private ExtendedWebElement catalog;
-
     @Override
     public AboutOption clickOnAboutOption() {
+        return null;
+    }
+
+    @Override
+    public String getAboutText() {
         return null;
     }
 
@@ -60,7 +63,7 @@ public class iosMenuScreen extends MenuScreenBase {
 
     @Override
     public CatalogHomeScreenBase clickOnCatalogOption() {
-       catalog.click();
+        catalog.click();
         return initPage(getDriver(),CatalogHomeScreenBase.class);
     }
 }

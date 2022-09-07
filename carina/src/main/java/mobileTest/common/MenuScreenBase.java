@@ -9,6 +9,7 @@ public abstract class MenuScreenBase extends AbstractPage {
     }
 
     public abstract AboutOption clickOnAboutOption();
+    public abstract String getAboutText();
 
     public abstract WebViewOptions clickOnWebViewOption();
 

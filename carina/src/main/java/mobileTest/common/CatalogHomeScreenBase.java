@@ -8,19 +8,7 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract BackPackProductBase clickOnBackPack();
-
-    public abstract BikeLightProductBase clickOnBikeLight();
-
-    public abstract BoltShirtBase clickOnBoltTShirt();
-
-    public abstract FleeceTShirtBase clickOnFleeceTShirt();
-
-    public abstract ProductsBase clickOnLabOnesie();
-
-    public abstract ProductsBase clickOnTestAllTShirt();
-
-    public abstract ProductsBase clickOnSubmitting();
+    public abstract AlertScreenBase clickOnContinueOK();
 
     public abstract void clickAddToCart();
     public abstract MenuScreenBase clickOnMenu();
@@ -34,5 +22,8 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
     public abstract void clickOnOptionMenu();
 
     public abstract String getCatalogTitle();
+
+    public abstract String checkSubmitButton();
+
 
 }
