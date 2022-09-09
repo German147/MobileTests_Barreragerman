@@ -96,17 +96,5 @@ public class CatalogHome extends CatalogHomeScreenBase {
         return submitButton.getText();
     }
 
-    @Override
-    public ProductDetailsScreenBase clickOnProduct() {
-        return null;
-    }
-
-
-//    @Override
-//    public ProductDetailsScreenBase clickOnProduct() {
-//         boltTShirt.click();
-//         return initPage(getDriver(), ProductDetailsScreen.class);
-//    }
-
 
 }

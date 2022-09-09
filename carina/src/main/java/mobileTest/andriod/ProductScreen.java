@@ -19,39 +19,51 @@ public class ProductScreen extends ProductScreenBase {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Bolt T-Shirt\"]")
     private ExtendedWebElement boltTshirt;
 
-    @FindBy(id = "com.saucelabs.mydemoapp.android:id/productIV")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Bike Light\"]")
     private ExtendedWebElement lightBike;
 
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Fleece T-Shirt\"]")
     private ExtendedWebElement fleeceTShirt;
 
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Onesie\"]")
+    private ExtendedWebElement onesieTShirt;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Test.sllTheThings() T-Shirt\"]")
+    private ExtendedWebElement testTShirt;
+
     @Override
     public ProductDetailsScreenBase clickOnBackPack() {
-        return null;
+        backPack.click();
+        return initPage(getDriver(),ProductDetailsScreenBase.class);
     }
 
     @Override
     public ProductDetailsScreenBase clickOnBikeLight() {
-        return null;
+        lightBike.click();
+        return initPage(getDriver(),ProductDetailsScreenBase.class);
     }
 
     @Override
     public ProductDetailsScreenBase clickOnBoltTShirt() {
-        return null;
+        boltTshirt.click();
+        return initPage(getDriver(),ProductDetailsScreenBase.class);
     }
 
     @Override
     public ProductDetailsScreenBase clickOnFleeceTShirt() {
-        return null;
+        fleeceTShirt.click();
+        return initPage(getDriver(), ProductDetailsScreen.class);
     }
 
     @Override
     public ProductDetailsScreenBase clickOnOnesieTShirt() {
-        return null;
+        onesieTShirt.click();
+        return initPage(getDriver(), ProductDetailsScreen.class);
     }
 
     @Override
     public ProductDetailsScreenBase clickOnTestTShirt() {
-        return null;
+        testTShirt.click();
+        return initPage(getDriver(), ProductDetailsScreen.class);
     }
 }
