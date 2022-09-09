@@ -16,11 +16,13 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Catalog-tab-item\"`]")
     private ExtendedWebElement catalog;
+
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][1]")
     private ExtendedWebElement backPack;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Button\"`]")
     private ExtendedWebElement sortingButton;
+
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][2]")
     private ExtendedWebElement bikeLight;
 
@@ -44,40 +46,6 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     public CatalogHome(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public BackPackProductBase clickOnBackPack() {
-        backPack.click();
-        return initPage(getDriver(), BackPackProductBase.class);
-    }
-
-    @Override
-    public BikeLightProductBase clickOnBikeLight() {
-        bikeLight.click();
-        return initPage(getDriver(), BikeLightProductBase.class);
-    }
-
-    @Override
-    public BoltShirtBase clickOnBoltTShirt() {
-        tShirtBolt.click();
-        return initPage(getDriver(), BoltShirtBase.class);
-    }
-
-    @Override
-    public FleeceTShirtBase clickOnFleeceTShirt() {
-        fleeceTShirt.click();
-        return initPage(getDriver(),FleeceTShirtBase.class);
-    }
-
-    @Override
-    public ProductsBase clickOnLabOnesie() {
-        return null;
-    }
-
-    @Override
-    public ProductsBase clickOnTestAllTShirt() {
-        return null;
     }
 
     @Override
@@ -127,6 +95,18 @@ public class CatalogHome extends CatalogHomeScreenBase {
     public String checkSubmitButton() {
         return submitButton.getText();
     }
+
+    @Override
+    public ProductDetailsScreenBase clickOnProduct() {
+        return null;
+    }
+
+
+//    @Override
+//    public ProductDetailsScreenBase clickOnProduct() {
+//         boltTShirt.click();
+//         return initPage(getDriver(), ProductDetailsScreen.class);
+//    }
 
 
 }

@@ -26,7 +26,7 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Sauce Lab Back Packs\"`]")
     private ExtendedWebElement productTitle;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"$ <WritePriceHere>\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"$ <<WritePriceHere>>\"`]")
     private ExtendedWebElement productPrice;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"BlueColorUnSelected Icons\"`]")

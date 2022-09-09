@@ -78,15 +78,14 @@ public class MyDemoAppTests implements IAbstractTest {
     @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
     public void testAddPlusItemProduct() {
 
-//        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
-//
-//        BackPackProductBase backPack = homePage.clickOnBackPack();
-//        backPack.swipeUp();
-//        backPack.clickOnProductPlusButton();
-//
-//        String numberOfItems = backPack.getProductAmount();
-//
-//        assertEquals(numberOfItems,"2","The button was not tap");
+    CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+
+        ProductDetailsScreenBase backPack = homePage.clickOnProduct();
+        backPack.swipeUp();
+        backPack.clickOnProductPlusButton();
+        String numberOfItems = backPack.getProductAmount();
+
+        assertEquals(numberOfItems,"2","The button was not tap");
 
     }
 

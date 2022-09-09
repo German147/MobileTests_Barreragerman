@@ -8,11 +8,12 @@ import mobileTest.common.ProductDetailsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = ProductDetailsScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductDetailsScreenBase.class)
 public class ProductDetailsScreen extends ProductDetailsScreenBase {
     public ProductDetailsScreen(WebDriver driver) {
         super(driver);
     }
+
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/productIV")
     private ExtendedWebElement backPack;
@@ -22,22 +23,19 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/start2IV")
     private ExtendedWebElement submitButton;
-
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/noTV")
     private ExtendedWebElement numberOfItems;
-
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/plusIV")
     private ExtendedWebElement plusButton;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/descTV")
-    private ExtendedWebElement plusAddButton;
+    private ExtendedWebElement minusBUtton;
 
     @FindBy(className = "android.widget.TextView")
     private ExtendedWebElement tShirtTitle;
 
     @FindBy(className = "android.widget.TextView")
     private ExtendedWebElement fleeceTitle;
-
 
 
     @Override
@@ -62,7 +60,7 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public String getProductAmount() {
-        return null;
+        return numberOfItems.getText();
     }
 
     @Override
@@ -77,8 +75,7 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public void clickOnProductPlusButton() {
-
-    }
+        plusButton.click();    }
 
     @Override
     public void clickOnProductMinusButton() {
@@ -97,6 +94,6 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public void swipeUp() {
-
+        swipe(plusButton);
     }
 }

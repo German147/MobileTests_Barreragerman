@@ -13,23 +13,11 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Back Packs\"]")
-    private ExtendedWebElement backPack;
-
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
     private ExtendedWebElement menuButton;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
     private ExtendedWebElement catalog;
-
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Bolt T-Shirt\"]")
-    private ExtendedWebElement boltTshirt;
-
-    @FindBy(id = "com.saucelabs.mydemoapp.android:id/productIV")
-    private ExtendedWebElement lightBike;
-
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Sauce Lab Fleece T-Shirt\"]")
-    private ExtendedWebElement fleeceTShirt;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/closeBt")
     private ExtendedWebElement continueButton;
@@ -78,6 +66,14 @@ public class CatalogHome extends CatalogHomeScreenBase {
     public String checkSubmitButton() {
         return null;
     }
+
+
+
+//    @Override
+//    public ProductDetailsScreenBase clickOnBackPack() {
+//       backPack.click();
+//        return initPage(getDriver(),ProductDetailsScreenBase.class);
+//    }
 
 
 }
