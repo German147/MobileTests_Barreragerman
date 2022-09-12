@@ -11,13 +11,11 @@ public class AlertScreen extends AlertScreenBase {
     public AlertScreen(WebDriver driver) {
         super(driver);
     }
-
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/sortTV")
     private ExtendedWebElement alertText;
     @Override
     public String getAlertText() {
         return alertText.getText();
     }
-
 
 }

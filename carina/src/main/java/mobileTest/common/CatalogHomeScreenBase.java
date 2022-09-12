@@ -1,9 +1,12 @@
 package mobileTest.common;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import exceptions.ProductNotFoundException;
+import mobileTest.andriod.EnumProducts;
 import org.openqa.selenium.WebDriver;
 
 public abstract class CatalogHomeScreenBase extends AbstractPage {
+
     public CatalogHomeScreenBase(WebDriver driver) {
         super(driver);
     }
@@ -11,6 +14,7 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
     public abstract AlertScreenBase clickOnContinueOK();
 
     public abstract void clickAddToCart();
+
     public abstract MenuScreenBase clickOnMenu();
 
     public abstract CartScreenBase clickGoToCart();
@@ -25,5 +29,6 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
 
     public abstract String checkSubmitButton();
 
+    public abstract ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException;
 
 }

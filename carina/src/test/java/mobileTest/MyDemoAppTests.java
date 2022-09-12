@@ -3,6 +3,8 @@ package mobileTest;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
+import exceptions.ProductNotFoundException;
+import mobileTest.andriod.EnumProducts;
 import mobileTest.common.*;
 import org.testng.annotations.Test;
 
@@ -53,7 +55,7 @@ public class MyDemoAppTests implements IAbstractTest {
 //        String catalogTitle = homeScreen.getCatalogTitle();
 //
 //        assertEquals(amountOfAddedItems, "1 Items", "The products were no added");
-//        assertEquals(catalogTitle, "Products", "Catalog screen was not opened");
+//        assertEquals(catalogTitle, "EnumProducts", "Catalog screen was not opened");
 
     }
 
@@ -76,16 +78,21 @@ public class MyDemoAppTests implements IAbstractTest {
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
-    public void testAddPlusItemProduct() {
+    public void testAddPlusItemProduct() throws ProductNotFoundException {
 
-    CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
 
-        ProductDetailsScreenBase backPack = homePage.clickOnProduct();
-        backPack.swipeUp();
-        backPack.clickOnProductPlusButton();
-        String numberOfItems = backPack.getProductAmount();
+        // homePage.productFactory(EnumProducts.BACKPACKS.getXpaths().click()
 
-        assertEquals(numberOfItems,"2","The button was not tap");
+
+        //product = homePage.productFactory(EnumProducts.SAUCE_LAB_BOLT_T_SHIRT);
+
+//        ProductDetailsScreenBase backPack = homePage.clickOnProduct();
+//        backPack.swipeUp();
+//        backPack.clickOnProductPlusButton();
+//        String numberOfItems = backPack.getProductAmount();
+//
+//        assertEquals(numberOfItems,"2","The button was not tap");
 
     }
 
