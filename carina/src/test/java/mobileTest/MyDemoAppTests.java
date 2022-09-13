@@ -11,13 +11,19 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class MyDemoAppTests implements IAbstractTest {
-
+    /**
+     * In order to test the app here are the products available:
+     * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+     */
 
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
     public void testTappingOnDifferentProducts() {
-
+        /**
+         * In order to test the app here are the products available:
+         * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
 //        CatalogHomeScreenBase homeScreen = initPage(getDriver(), CatalogHomeScreenBase.class);
 //
 //        BackPackProductBase backPack = homeScreen.clickOnBackPack();
@@ -42,7 +48,10 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
     public void testAddAndRemoveAProductFromCart() {
-
+        /**
+         * In order to test the app here are the products available:
+         * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
         CatalogHomeScreenBase homeScreen = initPage(getDriver(), CatalogHomeScreenBase.class);
 
 //        BackPackProductBase backPack = homeScreen.clickOnBackPack();
@@ -63,7 +72,10 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Click on submitting button", value = {"mobile", "practice"})
     public void testSubmittingReviewButton() {
-//
+        /**
+         * In order to test the app here are the products available:
+         * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
 //        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
 //
 //        BackPackProductBase submitButton = homePage.clickOnBackPack();
@@ -79,8 +91,16 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
     public void testAddPlusItemProduct() throws ProductNotFoundException {
+        /**
+         * In order to test the app here are the products available:
+         * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
 
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
+        product.swipeUp();
+        product.clickOnProductPlusButton();
+
 
         // homePage.productFactory(EnumProducts.BACKPACKS.getXpaths().click()
 

@@ -31,4 +31,6 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
 
     public abstract ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException;
 
+    public abstract ProductDetailsScreenBase selectProduct(String product);
+
 }

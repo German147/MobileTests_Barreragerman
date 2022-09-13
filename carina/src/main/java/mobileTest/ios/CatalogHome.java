@@ -103,5 +103,10 @@ public class CatalogHome extends CatalogHomeScreenBase {
         return null;
     }
 
+    @Override
+    public ProductDetailsScreenBase selectProduct(String product) {
+        return null;
+    }
+
 
 }
