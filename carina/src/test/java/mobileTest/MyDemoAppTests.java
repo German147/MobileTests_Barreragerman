@@ -100,19 +100,9 @@ public class MyDemoAppTests implements IAbstractTest {
         ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
         product.swipeUp();
         product.clickOnProductPlusButton();
+        String numberOfItems = product.getProductAmount();
 
-
-        // homePage.productFactory(EnumProducts.BACKPACKS.getXpaths().click()
-
-
-        //product = homePage.productFactory(EnumProducts.SAUCE_LAB_BOLT_T_SHIRT);
-
-//        ProductDetailsScreenBase backPack = homePage.clickOnProduct();
-//        backPack.swipeUp();
-//        backPack.clickOnProductPlusButton();
-//        String numberOfItems = backPack.getProductAmount();
-//
-//        assertEquals(numberOfItems,"2","The button was not tap");
+        assertEquals(numberOfItems, "2", "The button was not tap");
 
     }
 
