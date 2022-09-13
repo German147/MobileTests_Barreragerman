@@ -76,15 +76,14 @@ public class MyDemoAppTests implements IAbstractTest {
          * In order to test the app here are the products available:
          * "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
-//        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
-//
-//        BackPackProductBase submitButton = homePage.clickOnBackPack();
-//        AlertScreenBase alertScreen = submitButton.clickOnSubmitStar();
-//        String alertText = alertScreen.getAlertText();
-//        homePage.clickOnContinueOK();
-//
-//        assertEquals(alertText,
-//                "Thank you for submitting your review!", "The button was not tap");
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
+        AlertScreenBase alertScreen = product.clickOnSubmitStar();
+        String alertText = alertScreen.getAlertText();
+        homePage.clickOnContinueOK();
+
+        assertEquals(alertText,
+                "Thank you for submitting your review!", "The button was not tap");
     }
 
     @Test

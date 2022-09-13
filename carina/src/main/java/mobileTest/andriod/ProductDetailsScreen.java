@@ -37,6 +37,9 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
     @FindBy(className = "android.widget.TextView")
     private ExtendedWebElement fleeceTitle;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/start2IV")
+    private ExtendedWebElement submittStar;
+
 
     @Override
     public String getProductTitle() {
@@ -89,7 +92,8 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public AlertScreenBase clickOnSubmitStar() {
-        return null;
+      submittStar.click();
+        return initPage(getDriver(),AlertScreenBase.class);
     }
 
     @Override
