@@ -3,7 +3,6 @@ package mobileTest.andriod;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import mobileTest.common.AlertScreenBase;
-import mobileTest.common.MenuScreenBase;
 import mobileTest.common.ProductDetailsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -40,10 +39,15 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/start2IV")
     private ExtendedWebElement submittStar;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/cartBt")
+    private ExtendedWebElement addToCartButton;
+
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/productTV")
+    private ExtendedWebElement productTitle;
 
     @Override
     public String getProductTitle() {
-        return null;
+        return productTitle.getText();
     }
 
     @Override
@@ -78,7 +82,8 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public void clickOnProductPlusButton() {
-        plusButton.click();    }
+        plusButton.click();
+    }
 
     @Override
     public void clickOnProductMinusButton() {
@@ -87,13 +92,13 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public void clickAddToCartButton() {
-
+        addToCartButton.click();
     }
 
     @Override
     public AlertScreenBase clickOnSubmitStar() {
-      submittStar.click();
-        return initPage(getDriver(),AlertScreenBase.class);
+        submittStar.click();
+        return initPage(getDriver(), AlertScreenBase.class);
     }
 
     @Override

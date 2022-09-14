@@ -14,11 +14,15 @@ public class AlertScreen extends AlertScreenBase {
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Thank you for submitting your review!\"`]")
     private ExtendedWebElement alertText;
+
+
     @Override
     public String getAlertText() {
         return alertText.getText();
     }
 
+    @Override
+    public void clickContinueAlert() {
 
-
+    }
 }

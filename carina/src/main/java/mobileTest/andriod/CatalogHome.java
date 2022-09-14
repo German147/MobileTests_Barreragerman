@@ -1,22 +1,14 @@
 package mobileTest.andriod;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
-import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import exceptions.ProductNotFoundException;
 import mobileTest.common.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import static org.apache.logging.log4j.ThreadContext.isEmpty;
 
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CatalogHomeScreenBase.class)
@@ -29,8 +21,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
         // xpaths = driver.findElements(By.xpath("(//*[contains(@text,'/')])"));
     }
 
-    @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
-    private ExtendedWebElement menuButton;
+
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
     private ExtendedWebElement catalog;
@@ -59,6 +50,18 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Test.sllTheThings() T-Shirt\"]")
     private ExtendedWebElement testTShirt;
 
+    @FindBy(id="com.saucelabs.mydemoapp.android:id/cartIV")
+    private ExtendedWebElement goToCart;
+
+    @FindBy(xpath = "//android.widget.ImageView[contains(text(),'Sauce')]")
+    private ExtendedWebElement xpathslist;
+
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/productTV")
+    private ExtendedWebElement catalogTitle;
+
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
+    private ExtendedWebElement menuButton;
+
 
 
     @Override
@@ -73,12 +76,14 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @Override
     public MenuScreenBase clickOnMenu() {
-        return null;
+       menuButton.click();
+        return initPage(getDriver(), MenuScreenBase.class);
     }
 
     @Override
     public CartScreenBase clickGoToCart() {
-        return null;
+        goToCart.click();
+        return initPage(getDriver(), CartScreenBase.class);
     }
 
     @Override
@@ -98,7 +103,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @Override
     public String getCatalogTitle() {
-        return null;
+        return catalogTitle.getText();
     }
 
     @Override
@@ -171,6 +176,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
         return new ProductDetailsScreen(getDriver());
 
     }
+
 
 }
 

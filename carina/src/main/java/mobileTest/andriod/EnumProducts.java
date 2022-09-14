@@ -1,9 +1,6 @@
 package mobileTest.andriod;
 
 
-import com.qaprosoft.carina.core.gui.AbstractPage;
-import org.openqa.selenium.WebDriver;
-
 public enum EnumProducts {
 
     SAUCE_LAB_BACK_PACKS("//android.widget.ImageView[@content-desc=\"Sauce Lab Back Packs\"]"),
@@ -18,7 +15,7 @@ public enum EnumProducts {
 
     SAUCE_LAB_TEST_ALL_THE_THINGS_T_SHIRT("//android.widget.ImageView[@content-desc=\"Test.sllTheThings() T-Shirt\"]");
 
-    private String xpaths;
+    private final String xpaths;
 
     EnumProducts(String xpaths) {
         this.xpaths = xpaths;
