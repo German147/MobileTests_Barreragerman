@@ -10,7 +10,7 @@ public  abstract class ProductDetailsScreenBase extends AbstractPage implements 
         super(driver);
     }
 
-    public abstract String getProductTitle();
+ public abstract String getProductTitle();
 
     public abstract String getProductPrice();
 
