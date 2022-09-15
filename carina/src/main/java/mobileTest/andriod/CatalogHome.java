@@ -112,28 +112,22 @@ public class CatalogHome extends CatalogHomeScreenBase {
         switch (product) {
             case "BackPacks":
                 backPackLab.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "BikeLight":
                 System.out.println("This product crash the app");
                 lightBike.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "BoltTShirt":
                 boltTshirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "FleeceTShirt":
                 fleeceTShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "OnesieTShirt":
                 onesieTShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "AllThingsTShirt":
                 testTShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             default:
         }

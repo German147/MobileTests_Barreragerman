@@ -47,6 +47,8 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/productTV")
     private ExtendedWebElement productTitle;
 
+
+
     @Override
     public String getProductTitle() {
         return productTitle.getText();
@@ -89,7 +91,7 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
 
     @Override
     public void clickOnProductMinusButton() {
-
+        minusBUtton.click();
     }
 
     @Override

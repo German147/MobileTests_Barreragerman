@@ -8,21 +8,24 @@ import mobileTest.common.NoItemScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = CartScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CartScreenBase.class)
 public class Cart extends CartScreenBase {
     public Cart(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Container for fragments\"]/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.TextView")
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/noTV")
     private ExtendedWebElement numberOfItem;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/removeBt")
     private ExtendedWebElement removeButton;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/minusIV")
+    private ExtendedWebElement minusButton;
+
     @Override
     public NoItemScreenBase clickOnRemove() {
-       removeButton.click();
+        removeButton.click();
         return initPage(getDriver(), NoItemScreenBase.class);
     }
 
@@ -44,5 +47,10 @@ public class Cart extends CartScreenBase {
     @Override
     public String getNoItemTitle() {
         return null;
+    }
+
+    @Override
+    public void clickOnMinusButton() {
+    minusButton.click();
     }
 }

@@ -12,6 +12,7 @@ public abstract class CartScreenBase extends AbstractPage {
     public abstract void clickToCheckOut();
     public abstract String getNumberOfItem();
     public abstract CatalogHomeScreenBase clickOnGoShoppingButton();
-
     public abstract String getNoItemTitle();
+
+    public abstract void clickOnMinusButton();
 }
