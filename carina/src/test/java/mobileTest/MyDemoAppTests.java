@@ -16,37 +16,39 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
+    @TestLabel(name = "testTappingOnDifferentProducts", value = {"mobile", "practice"})
     public void testTappingOnDifferentProducts() {
         /*
           In order to test the app here are the products available:
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
-        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
-        ProductDetailsScreenBase product = homePage.selectProduct("AllThingsTShirt");
 
-        String allThings = product.getProductTitle();
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
+
+        String bacPack = product.getProductTitle();
         MenuScreenBase menu = homePage.clickOnMenu();
         menu.clickOnCatalogOption();
         homePage.selectProduct("BoltTShirt");
         String boltTitle = product.getProductTitle();
         homePage.clickOnMenu();
         menu.clickOnCatalogOption();
-        homePage.selectProduct("BackPacks");
-        String bacPack = product.getProductTitle();
+        homePage.selectProduct("FleeceTShirt");
+        String fleece = product.getProductTitle();
 
         homePage.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        assertEquals(allThings, "Test.allTheThings() T-Shirt", "The product is incorrect");
+        assertEquals(bacPack, "Sauce Lab Back Packs", "The product is incorrect");
         assertEquals(boltTitle, "Sauce Lab Bolt T-Shirt", "The product is incorrect");
-        assertEquals(bacPack,
-                "Sauce Lab Back Packs", "The product is incorrect");
+        assertEquals(fleece,
+                "Sauce Lab Fleece T-Shirt", "The product is incorrect");
     }
 
+    //Sauce Lab Back Packs
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
+    @TestLabel(name = "testAddAndRemoveAProductFromCart", value = {"mobile", "practice"})
     public void testAddAndRemoveAProductFromCart() {
         /*
           In order to test the app here are the products available:
@@ -71,7 +73,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Click on submitting button", value = {"mobile", "practice"})
+    @TestLabel(name = "testSubmittingReviewButton", value = {"mobile", "practice"})
     public void testSubmittingReviewButton() {
         /*
           In order to test the app here are the products available:
@@ -92,7 +94,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
+    @TestLabel(name = "testAddPlusItemProduct", value = {"mobile", "practice"})
     public void testAddPlusItemProduct() {
         /*
           In order to test the app here are the products available:
@@ -104,9 +106,37 @@ public class MyDemoAppTests implements IAbstractTest {
         product.swipeUp();
         product.clickOnProductPlusButton();
         String numberOfItems = product.getProductAmount();
+        MenuScreenBase manu = homePage.clickOnMenu();
+        manu.clickOnCatalogOption();
 
         assertEquals(numberOfItems, "2", "The button was not tap");
 
     }
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    public void testMinusButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
+        product.swipeUp();
+        product.clickOnProductPlusButton();
+        product.clickOnProductPlusButton();
+        product.clickAddToCartButton();
+        CartScreenBase cart = homePage.clickGoToCart();
+        cart.clickOnMinusButton();
+        String numberOfItem = cart.getNumberOfItem();
+        MenuScreenBase menu = homePage.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(numberOfItem, "2", "The button does not work");
+
+
+    }
+
 
 }

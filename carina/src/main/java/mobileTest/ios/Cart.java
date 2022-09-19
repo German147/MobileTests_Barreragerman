@@ -52,5 +52,10 @@ public class Cart extends CartScreenBase {
         return null;
     }
 
+    @Override
+    public void clickOnMinusButton() {
+
+    }
+
 
 }
