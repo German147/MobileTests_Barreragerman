@@ -3,6 +3,8 @@ package mobileTest.ios;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
+import exceptions.ProductNotFoundException;
+import mobileTest.andriod.EnumProducts;
 import mobileTest.common.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -38,7 +40,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(xpath = "(//XCUIElementTypeOther[@name=\"ProductItem\"])[4]")
     private ExtendedWebElement fleeceTShirt;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Products\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"EnumProducts\"`]")
     private ExtendedWebElement catalogTitle;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"StarUnSelected Icons\"`][1]")
@@ -94,6 +96,16 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @Override
     public String checkSubmitButton() {
         return submitButton.getText();
+    }
+
+    @Override
+    public ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException {
+        return null;
+    }
+
+    @Override
+    public ProductDetailsScreenBase selectProduct(String product) {
+        return null;
     }
 
 

@@ -9,51 +9,63 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class MyDemoAppTests implements IAbstractTest {
-
+    /*
+      In order to test the app here are the products available:
+      "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+     */
 
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
     public void testTappingOnDifferentProducts() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("FleeceTShirt");
 
-//        CatalogHomeScreenBase homeScreen = initPage(getDriver(), CatalogHomeScreenBase.class);
-//
-//        BackPackProductBase backPack = homeScreen.clickOnBackPack();
-//        String backPackTitle = backPack.getProductTitle();
-//        MenuScreenBase menu = homeScreen.clickOnMenu();
-//        menu.clickOnCatalogOption();
-//        BoltShirtBase boltShirt = homeScreen.clickOnBoltTShirt();
-//        String tShirtTitle = boltShirt.getProductTitle();
-//        homeScreen.clickOnMenu();
-//        menu.clickOnCatalogOption();
-//        FleeceTShirtBase fleece = homeScreen.clickOnFleeceTShirt();
-//        String fleeceTitle = fleece.getProductTitle();
-//        homeScreen.clickOnMenu();
-//
-//        assertEquals(backPackTitle, "Sauce Lab Back Packs", "The product is incorrect");
-//        assertEquals(tShirtTitle, "Sauce Lab Bolt T-Shirt", "The product is incorrect");
-//        assertEquals(fleeceTitle,
-//                "Sauce Lab Fleece T-Shirt", "The product is incorrect");
+        String fleeceShirt = product.getProductTitle();
+        MenuScreenBase menu = homePage.clickOnMenu();
+        menu.clickOnCatalogOption();
+        homePage.selectProduct("BoltTShirt");
+        String boltTitle = product.getProductTitle();
+        homePage.clickOnMenu();
+        menu.clickOnCatalogOption();
+        homePage.selectProduct("BackPacks");
+        String bacPack = product.getProductTitle();
+
+        homePage.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(fleeceShirt, "Sauce Lab Fleece T-Shirt", "The product is incorrect");
+        assertEquals(boltTitle, "Sauce Lab Bolt T-Shirt", "The product is incorrect");
+        assertEquals(bacPack,
+                "Sauce Lab Back Packs", "The product is incorrect");
     }
 
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
     public void testAddAndRemoveAProductFromCart() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
+        product.swipeUp();
+        product.clickOnProductPlusButton();
+        String amountOfAddedItems = product.getProductAmount();
+        product.clickAddToCartButton();
+        CartScreenBase cart = homePage.clickGoToCart();
+        NoItemScreenBase noItemScreen = cart.clickOnRemove();
 
-        CatalogHomeScreenBase homeScreen = initPage(getDriver(), CatalogHomeScreenBase.class);
+        noItemScreen.clickOnGoShoppingButton();
+        String catalogTitle = homePage.getCatalogTitle();
 
-//        BackPackProductBase backPack = homeScreen.clickOnBackPack();
-//        backPack.clickAddToCartButton();
-//        CartScreenBase cart = homeScreen.clickGoToCart();
-//        String amountOfAddedItems = cart.getNumberOfItem();
-//        NoItemScreenBase noItemScreen = cart.clickOnRemove();
-//
-//        noItemScreen.clickOnGoShoppingButton();
-//        String catalogTitle = homeScreen.getCatalogTitle();
-//
-//        assertEquals(amountOfAddedItems, "1 Items", "The products were no added");
-//        assertEquals(catalogTitle, "Products", "Catalog screen was not opened");
+        assertEquals(amountOfAddedItems, "2", "The products were not added");
+        assertEquals(catalogTitle, "Products", "Catalog screen was not opened");
 
     }
 
@@ -61,31 +73,39 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Click on submitting button", value = {"mobile", "practice"})
     public void testSubmittingReviewButton() {
-//
-//        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
-//
-//        BackPackProductBase submitButton = homePage.clickOnBackPack();
-//        AlertScreenBase alertScreen = submitButton.clickOnSubmitStar();
-//        String alertText = alertScreen.getAlertText();
-//        homePage.clickOnContinueOK();
-//
-//        assertEquals(alertText,
-//                "Thank you for submitting your review!", "The button was not tap");
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
+        AlertScreenBase alertScreen = product.clickOnSubmitStar();
+
+        String alertText = alertScreen.getAlertText();
+        alertScreen.clickContinueAlert();
+        MenuScreenBase menu = homePage.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(alertText,
+                "Thank you for submitting your review!", "The button was not tap");
     }
 
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
     public void testAddPlusItemProduct() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
 
-    CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
+        product.swipeUp();
+        product.clickOnProductPlusButton();
+        String numberOfItems = product.getProductAmount();
 
-        ProductDetailsScreenBase backPack = homePage.clickOnProduct();
-        backPack.swipeUp();
-        backPack.clickOnProductPlusButton();
-        String numberOfItems = backPack.getProductAmount();
-
-        assertEquals(numberOfItems,"2","The button was not tap");
+        assertEquals(numberOfItems, "2", "The button was not tap");
 
     }
 

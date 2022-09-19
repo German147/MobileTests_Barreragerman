@@ -8,7 +8,7 @@ public abstract class CartScreenBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void clickOnRemove();
+    public abstract NoItemScreenBase clickOnRemove();
     public abstract void clickToCheckOut();
     public abstract String getNumberOfItem();
     public abstract CatalogHomeScreenBase clickOnGoShoppingButton();
