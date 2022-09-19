@@ -16,7 +16,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
+    @TestLabel(name = "testTappingOnDifferentProducts", value = {"mobile", "practice"})
     public void testTappingOnDifferentProducts() {
         /*
           In order to test the app here are the products available:
@@ -48,7 +48,7 @@ public class MyDemoAppTests implements IAbstractTest {
     //Sauce Lab Back Packs
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Navigating and Tapping on different products.", value = {"mobile", "practice"})
+    @TestLabel(name = "testAddAndRemoveAProductFromCart", value = {"mobile", "practice"})
     public void testAddAndRemoveAProductFromCart() {
         /*
           In order to test the app here are the products available:
@@ -73,7 +73,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Click on submitting button", value = {"mobile", "practice"})
+    @TestLabel(name = "testSubmittingReviewButton", value = {"mobile", "practice"})
     public void testSubmittingReviewButton() {
         /*
           In order to test the app here are the products available:
@@ -94,7 +94,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
+    @TestLabel(name = "testAddPlusItemProduct", value = {"mobile", "practice"})
     public void testAddPlusItemProduct() {
         /*
           In order to test the app here are the products available:
@@ -115,7 +115,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "Click on Add plus button", value = {"mobile", "practice"})
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
     public void testMinusButton() {
         /*
           In order to test the app here are the products available:
