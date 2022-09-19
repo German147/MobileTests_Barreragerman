@@ -3,15 +3,13 @@ package mobileTest.ios;
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
-import exceptions.ProductNotFoundException;
-import mobileTest.andriod.EnumProducts;
+import mobileTest.andriod.ProductDetailsScreen;
 import mobileTest.common.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import static com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type.IOS_PHONE;
 
-@DeviceType(pageType = IOS_PHONE, parentClass = CatalogHomeScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE,parentClass = CatalogHomeScreenBase.class)
 public class CatalogHome extends CatalogHomeScreenBase {
 
     private static final String THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID = "This method is not yet implemented for iOS";
@@ -19,14 +17,8 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Catalog-tab-item\"`]")
     private ExtendedWebElement catalog;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][1]")
-    private ExtendedWebElement backPack;
-
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Button\"`]")
     private ExtendedWebElement sortingButton;
-
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][2]")
-    private ExtendedWebElement bikeLight;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"More-tab-item\"`]")
     private ExtendedWebElement menuOption;
@@ -34,17 +26,30 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Cart-tab-item\"`]")
     private ExtendedWebElement goToCart;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][3]")
-    private ExtendedWebElement tShirtBolt;
-
-    @FindBy(xpath = "(//XCUIElementTypeOther[@name=\"ProductItem\"])[4]")
-    private ExtendedWebElement fleeceTShirt;
-
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"EnumProducts\"`]")
     private ExtendedWebElement catalogTitle;
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"StarUnSelected Icons\"`][1]")
     private ExtendedWebElement submitButton;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][1]")
+    private ExtendedWebElement backPack;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][2]")
+    private ExtendedWebElement bikeLight;
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][3]")
+    private ExtendedWebElement tShirtBolt;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][3]")
+    private ExtendedWebElement onesieShirt;
+
+    @FindBy(xpath = "(//XCUIElementTypeOther[@name=\"ProductItem\"])[4]")
+    private ExtendedWebElement fleeceTShirt;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"ProductItem\"`][4]/XCUIElementTypeImage")
+    private ExtendedWebElement allThingsShirt;
+
+
 
     public CatalogHome(WebDriver driver) {
         super(driver);
@@ -99,13 +104,36 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
     @Override
-    public ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException {
-        return null;
-    }
-
-    @Override
     public ProductDetailsScreenBase selectProduct(String product) {
-        return null;
+        switch (product) {
+            case "BackPacks":
+                backPack.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            case "BikeLight":
+                System.out.println("This product crash the app");
+                bikeLight.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            case "BoltTShirt":
+                tShirtBolt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            case "FleeceTShirt":
+                fleeceTShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            case "OnesieTShirt":
+                onesieShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            case "AllThingsTShirt":
+                allThingsShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
+                break;
+            default:
+        }
+        return new ProductDetailsScreen(getDriver());
     }
 
 

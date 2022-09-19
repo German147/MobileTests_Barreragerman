@@ -23,9 +23,9 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
-        ProductDetailsScreenBase product = homePage.selectProduct("FleeceTShirt");
+        ProductDetailsScreenBase product = homePage.selectProduct("AllThingsTShirt");
 
-        String fleeceShirt = product.getProductTitle();
+        String allThings = product.getProductTitle();
         MenuScreenBase menu = homePage.clickOnMenu();
         menu.clickOnCatalogOption();
         homePage.selectProduct("BoltTShirt");
@@ -38,7 +38,7 @@ public class MyDemoAppTests implements IAbstractTest {
         homePage.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        assertEquals(fleeceShirt, "Sauce Lab Fleece T-Shirt", "The product is incorrect");
+        assertEquals(allThings, "Test.allTheThings() T-Shirt", "The product is incorrect");
         assertEquals(boltTitle, "Sauce Lab Bolt T-Shirt", "The product is incorrect");
         assertEquals(bacPack,
                 "Sauce Lab Back Packs", "The product is incorrect");

@@ -13,14 +13,11 @@ import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CatalogHomeScreenBase.class)
 public class CatalogHome extends CatalogHomeScreenBase {
-    private ProductScreen productsClickIt;
-
 
     public CatalogHome(WebDriver driver) {
         super(driver);//  //driver.findElementsByXPath("//*[contains(@text,'/')]")
         // xpaths = driver.findElements(By.xpath("(//*[contains(@text,'/')])"));
     }
-
 
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
@@ -61,8 +58,6 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
     private ExtendedWebElement menuButton;
-
-
 
     @Override
     public AlertScreenBase clickOnContinueOK() {
@@ -112,64 +107,33 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
     @Override
-    public ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException {
-        return null;
-    }
-
-
-//    public ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException {
-//
-//        WebElement targetXpath = findXpath(product);
-//
-//        targetXpath.click();
-//
-//        switch (product) {
-//            case SAUCE_LAB_BACK_PACKS:
-//            case SAUCE_LAB_BOLT_T_SHIRT:
-//            case SAUCE_LAB_BIKE_LIGHT:
-//            case SAUCE_LAB_FLEECE_T_SHIRT:
-//            case SAUCE_LAB_ONESIE_T_SHIRT:
-//            case SAUCE_LAB_TEST_ALL_THE_THINGS_T_SHIRT:
-//                return new ProductDetailsScreen(getDriver()) {
-//                };
-//            default:
-//                return null;
-//        }
-//    }
-//
-//    private WebElement findXpath(EnumProducts product) throws ProductNotFoundException {
-//
-//        Optional<WebElement> targetXpath =  xpaths.stream().filter(x->x.getText().equals(product.getXpaths())).findFirst();
-//
-//        if (!targetXpath.isPresent()) {
-//            throw new ProductNotFoundException("The product " + product + " does not exist");
-//        }
-//
-//        return targetXpath.get();
-//    }
-
-    @Override
     public ProductDetailsScreen selectProduct(String product) {
 
         switch (product) {
             case "BackPacks":
                 backPackLab.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "BikeLight":
                 System.out.println("This product crash the app");
                 lightBike.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "BoltTShirt":
                 boltTshirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "FleeceTShirt":
                 fleeceTShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "OnesieTShirt":
                 onesieTShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             case "AllThingsTShirt":
                 testTShirt.click();
+                initPage(getDriver(),ProductDetailsScreenBase.class);
                 break;
             default:
         }
