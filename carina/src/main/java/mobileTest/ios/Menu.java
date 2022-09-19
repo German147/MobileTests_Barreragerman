@@ -29,7 +29,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public WebViewOptions clickOnWebViewOption() {
+    public WebViewOptionsBase clickOnWebViewOption() {
         return null;
     }
 

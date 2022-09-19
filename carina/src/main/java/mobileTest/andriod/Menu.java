@@ -12,6 +12,9 @@ public class Menu extends MenuScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
     private ExtendedWebElement catalog;
 
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[2]/android.widget.TextView")
+    private ExtendedWebElement webViewButton;
+
     public Menu(WebDriver driver) {
         super(driver);
     }
@@ -27,8 +30,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public WebViewOptions clickOnWebViewOption() {
-        return null;
+    public WebViewOptionsBase clickOnWebViewOption() {
+       webViewButton.click();
+        return initPage(getDriver(), WebViewOptionsBase.class);
     }
 
     @Override

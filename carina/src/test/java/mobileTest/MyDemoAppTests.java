@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -135,8 +136,27 @@ public class MyDemoAppTests implements IAbstractTest {
 
         assertEquals(numberOfItem, "2", "The button does not work");
 
-
     }
 
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    public void testWebViewButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        MenuScreenBase menu = homePage.clickOnMenu();
+        WebViewOptionsBase webView = menu.clickOnWebViewOption();
+        String title =webView.getScreenTitle();
+        webView.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(title,"Webview","The screen is not opened");
+
+
+    }
 
 }
