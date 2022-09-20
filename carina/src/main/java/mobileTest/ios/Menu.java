@@ -39,7 +39,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public QRCodeScanner clickOnQRScannerOption() {
+    public QRCodeScannerBase clickOnQRScannerOption() {
         return null;
     }
 
@@ -59,7 +59,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public DrawingOption clickOnDrawingOption() {
+    public DrawingOptionBase clickOnDrawingOption() {
         return null;
     }
 

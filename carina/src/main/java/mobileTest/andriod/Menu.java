@@ -15,6 +15,12 @@ public class Menu extends MenuScreenBase {
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[2]/android.widget.TextView")
     private ExtendedWebElement webViewButton;
 
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[3]/android.widget.TextView")
+    private ExtendedWebElement qrScanner;
+
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[5]/android.widget.TextView")
+    private ExtendedWebElement drawingScreen;
+
     public Menu(WebDriver driver) {
         super(driver);
     }
@@ -41,8 +47,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public QRCodeScanner clickOnQRScannerOption() {
-        return null;
+    public QRCodeScannerBase clickOnQRScannerOption() {
+        qrScanner.click();
+        return initPage(getDriver(), QRCodeScannerBase.class);
     }
 
     @Override
@@ -61,8 +68,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public DrawingOption clickOnDrawingOption() {
-        return null;
+    public DrawingOptionBase clickOnDrawingOption() {
+       drawingScreen.click();
+        return initPage(getDriver(), DrawingOptionBase.class);
     }
 
     @Override

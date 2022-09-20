@@ -15,7 +15,7 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract ResetAppOption clickOnResentAppOption();
 
-    public abstract QRCodeScanner clickOnQRScannerOption();
+    public abstract QRCodeScannerBase clickOnQRScannerOption();
 
     public abstract PushNotificationOption clickOnPushNotificationOption();
 
@@ -23,7 +23,7 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract GeoLocationOption clickOnGeoLocalizationOption();
 
-    public abstract DrawingOption clickOnDrawingOption();
+    public abstract DrawingOptionBase clickOnDrawingOption();
 
     public abstract CatalogHomeScreenBase clickOnCatalogOption();
 

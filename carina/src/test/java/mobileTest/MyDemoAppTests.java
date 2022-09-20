@@ -150,13 +150,51 @@ public class MyDemoAppTests implements IAbstractTest {
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
         MenuScreenBase menu = homePage.clickOnMenu();
         WebViewOptionsBase webView = menu.clickOnWebViewOption();
-        String title =webView.getScreenTitle();
+        String title = webView.getScreenTitle();
         webView.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        assertEquals(title,"Webview","The screen is not opened");
-
+        assertEquals(title, "Webview", "The screen is not opened");
 
     }
 
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    public void testQRScannerButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        MenuScreenBase menu = homePage.clickOnMenu();
+
+        QRCodeScannerBase qrScreen = menu.clickOnQRScannerOption();
+        String title = qrScreen.getQRText();
+        qrScreen.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(title, "QR Code Scanner", "The screen was not opened");
+
+    }
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    public void testDrawingButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        MenuScreenBase menu = homePage.clickOnMenu();
+        DrawingOptionBase drawingScreen = menu.clickOnDrawingOption();
+        String title = drawingScreen.getDrawingText();
+        drawingScreen.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        assertEquals(title,"Drawing","The screen is not opened");
+
+
+    }
 }
