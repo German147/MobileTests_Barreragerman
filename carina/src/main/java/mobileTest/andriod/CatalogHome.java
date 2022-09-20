@@ -59,6 +59,9 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
     private ExtendedWebElement menuButton;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/header")
+    private ExtendedWebElement headerScreenView;
+
     @Override
     public AlertScreenBase clickOnContinueOK() {
         return null;
@@ -133,6 +136,11 @@ public class CatalogHome extends CatalogHomeScreenBase {
         }
         return new ProductDetailsScreen(getDriver());
 
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return headerScreenView.isElementPresent();
     }
 
 

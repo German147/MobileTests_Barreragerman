@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -25,6 +26,7 @@ public class MyDemoAppTests implements IAbstractTest {
          */
 
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
 
         String bacPack = product.getProductTitle();
@@ -56,6 +58,7 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
         product.swipeUp();
         product.clickOnProductPlusButton();
@@ -81,6 +84,7 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
         AlertScreenBase alertScreen = product.clickOnSubmitStar();
 
@@ -103,6 +107,7 @@ public class MyDemoAppTests implements IAbstractTest {
          */
 
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         ProductDetailsScreenBase product = homePage.selectProduct("BoltTShirt");
         product.swipeUp();
         product.clickOnProductPlusButton();
@@ -123,6 +128,7 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
         product.swipeUp();
         product.clickOnProductPlusButton();
@@ -148,6 +154,7 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         MenuScreenBase menu = homePage.clickOnMenu();
         WebViewOptionsBase webView = menu.clickOnWebViewOption();
         String title = webView.getScreenTitle();
@@ -167,6 +174,7 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
         MenuScreenBase menu = homePage.clickOnMenu();
 
         QRCodeScannerBase qrScreen = menu.clickOnQRScannerOption();
@@ -187,7 +195,11 @@ public class MyDemoAppTests implements IAbstractTest {
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
          */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+
         MenuScreenBase menu = homePage.clickOnMenu();
+
         DrawingOptionBase drawingScreen = menu.clickOnDrawingOption();
         String title = drawingScreen.getDrawingText();
         drawingScreen.clickOnMenu();

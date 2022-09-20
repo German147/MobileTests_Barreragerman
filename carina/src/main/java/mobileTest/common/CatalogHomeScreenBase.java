@@ -31,5 +31,7 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
 
     public abstract ProductDetailsScreenBase selectProduct(String product);
 
+    public abstract boolean isPageOpened();
+
 
 }

@@ -136,5 +136,10 @@ public class CatalogHome extends CatalogHomeScreenBase {
         return new ProductDetailsScreen(getDriver());
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return false;
+    }
+
 
 }
