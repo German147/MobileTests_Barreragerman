@@ -147,7 +147,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    @TestLabel(name = "testWebViewButton", value = {"mobile", "practice"})
     public void testWebViewButton() {
         /*
           In order to test the app here are the products available:
@@ -167,7 +167,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    @TestLabel(name = "testQRScannerButton", value = {"mobile", "practice"})
     public void testQRScannerButton() {
         /*
           In order to test the app here are the products available:
@@ -188,7 +188,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    @TestLabel(name = "testDrawingButton", value = {"mobile", "practice"})
     public void testDrawingButton() {
         /*
           In order to test the app here are the products available:
@@ -211,7 +211,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    @TestLabel(name = "testGeoLocation", value = {"mobile", "practice"})
     public void testGeoLocation() {
         /*
           In order to test the app here are the products available:
