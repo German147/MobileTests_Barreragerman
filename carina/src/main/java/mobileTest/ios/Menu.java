@@ -54,7 +54,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public GeoLocationOption clickOnGeoLocalizationOption() {
+    public GeoLocationOptionBase clickOnGeoLocalizationOption() {
         return null;
     }
 

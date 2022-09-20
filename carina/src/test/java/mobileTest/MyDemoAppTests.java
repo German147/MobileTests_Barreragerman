@@ -4,7 +4,6 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,6 +26,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
         ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
 
         String bacPack = product.getProductTitle();
@@ -205,8 +205,30 @@ public class MyDemoAppTests implements IAbstractTest {
         drawingScreen.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        assertEquals(title,"Drawing","The screen is not opened");
+        assertEquals(title, "Drawing", "The screen is not opened");
+    }
 
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testMinusButton", value = {"mobile", "practice"})
+    public void testGeoLocation() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+        MenuScreenBase menu = homePage.clickOnMenu();
+        GeoLocationOptionBase geoLocation =  menu.clickOnGeoLocalizationOption();
+
+        String title = geoLocation.getGeoLocationTitle();
+        geoLocation.clickOnMenu();
+        menu.clickOnCatalogOption();
+
+        Assert.assertEquals(title,"Geo Location","The page was not opened");
 
     }
+
 }

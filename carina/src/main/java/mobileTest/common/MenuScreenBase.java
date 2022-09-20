@@ -21,7 +21,7 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract LoginOption clickOnLoginOption();
 
-    public abstract GeoLocationOption clickOnGeoLocalizationOption();
+    public abstract GeoLocationOptionBase clickOnGeoLocalizationOption();
 
     public abstract DrawingOptionBase clickOnDrawingOption();
 

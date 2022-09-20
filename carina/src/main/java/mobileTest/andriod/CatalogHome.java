@@ -62,6 +62,8 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/header")
     private ExtendedWebElement headerScreenView;
 
+
+
     @Override
     public AlertScreenBase clickOnContinueOK() {
         return null;

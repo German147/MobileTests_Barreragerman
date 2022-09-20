@@ -21,6 +21,9 @@ public class Menu extends MenuScreenBase {
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[5]/android.widget.TextView")
     private ExtendedWebElement drawingScreen;
 
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[4]/android.widget.TextView")
+    private ExtendedWebElement geoLocation;
+
     public Menu(WebDriver driver) {
         super(driver);
     }
@@ -63,8 +66,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public GeoLocationOption clickOnGeoLocalizationOption() {
-        return null;
+    public GeoLocationOptionBase clickOnGeoLocalizationOption() {
+        geoLocation.click();
+        return initPage(getDriver(), GeoLocationOptionBase.class);
     }
 
     @Override
