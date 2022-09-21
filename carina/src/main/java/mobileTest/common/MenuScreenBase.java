@@ -8,7 +8,7 @@ public abstract class MenuScreenBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract AboutOption clickOnAboutOption();
+    public abstract AboutOptionBase clickOnAboutOption();
     public abstract String getAboutText();
 
     public abstract WebViewOptionsBase clickOnWebViewOption();

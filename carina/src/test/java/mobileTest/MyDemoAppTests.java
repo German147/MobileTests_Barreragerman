@@ -211,8 +211,8 @@ public class MyDemoAppTests implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "barreraGerman")
-    @TestLabel(name = "testGeoLocation", value = {"mobile", "practice"})
-    public void testGeoLocation() {
+    @TestLabel(name = "testGeoLocationButton", value = {"mobile", "practice"})
+    public void testGeoLocationButton() {
         /*
           In order to test the app here are the products available:
           "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
@@ -221,14 +221,36 @@ public class MyDemoAppTests implements IAbstractTest {
         Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
 
         MenuScreenBase menu = homePage.clickOnMenu();
-        GeoLocationOptionBase geoLocation =  menu.clickOnGeoLocalizationOption();
+        GeoLocationOptionBase geoLocation = menu.clickOnGeoLocalizationOption();
 
         String title = geoLocation.getGeoLocationTitle();
         geoLocation.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        Assert.assertEquals(title,"Geo Location","The page was not opened");
+        Assert.assertEquals(title, "Geo Location", "The page was not opened");
 
     }
 
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testAboutButton", value = {"mobile", "practice"})
+    public void testAboutButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+        MenuScreenBase menu = homePage.clickOnMenu();
+        AboutOptionBase aboutScreen = menu.clickOnAboutOption();
+        String title = aboutScreen.getAboutTitle();
+        aboutScreen.clickOnWebPageLink();
+
+        assertEquals(title, "About", "The Screen is not opened");
+
+    }
+
+
 }
+////android.widget.FrameLayout[@content-desc="Web View"]

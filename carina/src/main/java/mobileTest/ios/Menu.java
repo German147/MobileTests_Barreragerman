@@ -19,7 +19,7 @@ public class Menu extends MenuScreenBase {
     private ExtendedWebElement catalog;
 
     @Override
-    public AboutOption clickOnAboutOption() {
+    public AboutOptionBase clickOnAboutOption() {
         return null;
     }
 

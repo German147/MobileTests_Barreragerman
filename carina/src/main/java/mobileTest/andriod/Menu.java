@@ -24,13 +24,17 @@ public class Menu extends MenuScreenBase {
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[4]/android.widget.TextView")
     private ExtendedWebElement geoLocation;
 
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[6]/android.widget.TextView")
+    private ExtendedWebElement aboutButton;
+
     public Menu(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public AboutOption clickOnAboutOption() {
-        return null;
+    public AboutOptionBase clickOnAboutOption() {
+        aboutButton.click();
+        return initPage(getDriver(), AboutOptionBase.class);
     }
 
     @Override
