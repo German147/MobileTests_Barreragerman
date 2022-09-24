@@ -255,10 +255,7 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "testResetButton", value = {"mobile", "practice"})
     public void testResetAppButton() {
-        /*
-          In order to test the app here are the products available:
-          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
-         */
+
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
 
@@ -268,7 +265,27 @@ public class MyDemoAppTests implements IAbstractTest {
         String messageText = resetScreen.getMessageOk();
         resetScreen.clickOnOKButton();
 
-        assertEquals(messageText,"App State has been reset.","The button was not clicked");
+        assertEquals(messageText, "App State has been reset.", "The button was not clicked");
+    }
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testLoginButton", value = {"Mobile", "Practice"})
+    public void testLoginButton() {
+
+        CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homepage.isPageOpened(), "Catalog screen isn't opened");
+
+        MenuScreenBase menu = homepage.clickOnMenu();
+        LoginOptionBase login = menu.clickOnLoginOption();
+        String title = login.getLoginText();
+        login.setUsername("bod@example.com");
+        login.setPassword("10203040");
+        CatalogHomeScreenBase catalog = login.clickLogin();
+        String catalogTitle = catalog.getCatalogTitle();
+
+        assertEquals(title, "Login", "The page was not opened");
+        assertEquals(catalogTitle,"Products","The catalog is not opened");
     }
 
 }

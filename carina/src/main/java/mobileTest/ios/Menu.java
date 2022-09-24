@@ -49,7 +49,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public LoginOption clickOnLoginOption() {
+    public LoginOptionBase clickOnLoginOption() {
         return null;
     }
 

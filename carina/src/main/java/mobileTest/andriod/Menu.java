@@ -31,6 +31,11 @@ public class Menu extends MenuScreenBase {
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[7]/android.widget.TextView")
     private ExtendedWebElement resetAppButton;
 
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[12]/android.widget.TextView")
+    private ExtendedWebElement loginOption;
+
+
+
     public Menu(WebDriver driver) {
         super(driver);
     }
@@ -70,8 +75,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public LoginOption clickOnLoginOption() {
-        return null;
+    public LoginOptionBase clickOnLoginOption() {
+        loginOption.click();
+        return initPage(getDriver(), LoginOptionBase.class);
     }
 
     @Override

@@ -19,7 +19,7 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract PushNotificationOption clickOnPushNotificationOption();
 
-    public abstract LoginOption clickOnLoginOption();
+    public abstract LoginOptionBase clickOnLoginOption();
 
     public abstract GeoLocationOptionBase clickOnGeoLocalizationOption();
 
