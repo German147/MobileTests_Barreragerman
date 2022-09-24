@@ -13,7 +13,7 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract WebViewOptionsBase clickOnWebViewOption();
 
-    public abstract ResetAppOption clickOnResentAppOption();
+    public abstract ResetScreenBase clickOnResentAppOption();
 
     public abstract QRCodeScannerBase clickOnQRScannerOption();
 

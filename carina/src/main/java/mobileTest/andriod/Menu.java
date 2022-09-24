@@ -27,6 +27,10 @@ public class Menu extends MenuScreenBase {
     @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[6]/android.widget.TextView")
     private ExtendedWebElement aboutButton;
 
+
+    @FindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@content-desc=\"Recycler view for menu\"]/android.view.ViewGroup[7]/android.widget.TextView")
+    private ExtendedWebElement resetAppButton;
+
     public Menu(WebDriver driver) {
         super(driver);
     }
@@ -49,8 +53,9 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public ResetAppOption clickOnResentAppOption() {
-        return null;
+    public ResetScreenBase clickOnResentAppOption() {
+      resetAppButton.click();
+        return initPage(getDriver(), ResetScreenBase.class);
     }
 
     @Override

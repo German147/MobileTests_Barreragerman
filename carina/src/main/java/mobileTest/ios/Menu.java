@@ -34,7 +34,7 @@ public class Menu extends MenuScreenBase {
     }
 
     @Override
-    public ResetAppOption clickOnResentAppOption() {
+    public ResetScreenBase clickOnResentAppOption() {
         return null;
     }
 

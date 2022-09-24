@@ -251,6 +251,24 @@ public class MyDemoAppTests implements IAbstractTest {
 
     }
 
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "testResetButton", value = {"mobile", "practice"})
+    public void testResetAppButton() {
+        /*
+          In order to test the app here are the products available:
+          "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
+         */
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+        MenuScreenBase menu = homePage.clickOnMenu();
+        ResetScreenBase resetScreen = menu.clickOnResentAppOption();
+        resetScreen.clickOnRestAppButton();
+        String messageText = resetScreen.getMessageOk();
+        resetScreen.clickOnOKButton();
+
+        assertEquals(messageText,"App State has been reset.","The button was not clicked");
+    }
 
 }
-////android.widget.FrameLayout[@content-desc="Web View"]

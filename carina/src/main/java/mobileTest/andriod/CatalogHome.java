@@ -47,7 +47,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Test.sllTheThings() T-Shirt\"]")
     private ExtendedWebElement testTShirt;
 
-    @FindBy(id="com.saucelabs.mydemoapp.android:id/cartIV")
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/cartIV")
     private ExtendedWebElement goToCart;
 
     @FindBy(xpath = "//android.widget.ImageView[contains(text(),'Sauce')]")
@@ -62,7 +62,8 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/header")
     private ExtendedWebElement headerScreenView;
 
-
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
+    private ExtendedWebElement resetAppButton;
 
     @Override
     public AlertScreenBase clickOnContinueOK() {
@@ -76,7 +77,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @Override
     public MenuScreenBase clickOnMenu() {
-       menuButton.click();
+        menuButton.click();
         return initPage(getDriver(), MenuScreenBase.class);
     }
 
@@ -99,6 +100,12 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @Override
     public void clickOnOptionMenu() {
 
+    }
+
+    @Override
+    public ResetScreenBase clickOnResetApp() {
+        resetAppButton.click();
+        return initPage(getDriver(), ResetScreenBase.class);
     }
 
     @Override

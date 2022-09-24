@@ -94,6 +94,11 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
     @Override
+    public ResetScreenBase clickOnResetApp() {
+        return null;
+    }
+
+    @Override
     public String getCatalogTitle() {
         return catalogTitle.getText();
     }

@@ -23,6 +23,8 @@ public abstract class CatalogHomeScreenBase extends AbstractPage {
 
     public abstract void clickOnOptionMenu();
 
+    public abstract ResetScreenBase clickOnResetApp();
+
     public abstract String getCatalogTitle();
 
     public abstract String checkSubmitButton();
