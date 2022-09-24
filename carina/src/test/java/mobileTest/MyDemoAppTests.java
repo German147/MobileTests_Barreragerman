@@ -4,12 +4,16 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class MyDemoAppTests implements IAbstractTest {
+    private static final Logger LOGGER = LogManager.getLogger(MyDemoAppTests.class);
+
     /*
       In order to test the app here are the products available:
       "BackPacks","BoltTShirt","FleeceTShirt","OnesieTShirt","AllThingsTShirt"
@@ -283,9 +287,11 @@ public class MyDemoAppTests implements IAbstractTest {
         login.setPassword("10203040");
         CatalogHomeScreenBase catalog = login.clickLogin();
         String catalogTitle = catalog.getCatalogTitle();
-
+        LOGGER.info("Here the assertions are done");
         assertEquals(title, "Login", "The page was not opened");
-        assertEquals(catalogTitle,"Products","The catalog is not opened");
+        assertEquals(catalogTitle, "Products", "The catalog is not opened");
     }
+
+
 
 }
