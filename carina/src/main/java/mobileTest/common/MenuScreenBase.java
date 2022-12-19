@@ -27,5 +27,4 @@ public abstract class MenuScreenBase extends AbstractPage {
 
     public abstract CatalogHomeScreenBase clickOnCatalogOption();
 
-
 }

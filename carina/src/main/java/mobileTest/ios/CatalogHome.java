@@ -84,8 +84,9 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
     @Override
-    public void clickOnSortingItem() {
+    public SortingAlertPanelBase clickOnSortingItem() {
         sortingButton.click();
+        return initPage(getDriver(),SortingAlertPanelBase.class);
     }
 
     @Override
@@ -145,6 +146,11 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @Override
     public boolean isPageOpened() {
         return false;
+    }
+
+    @Override
+    public void swipeUp() {
+
     }
 
 

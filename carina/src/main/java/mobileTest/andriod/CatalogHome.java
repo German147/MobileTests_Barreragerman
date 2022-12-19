@@ -64,6 +64,9 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/itemTV")
     private ExtendedWebElement resetAppButton;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/sortIV")
+    private ExtendedWebElement sortingOrderButton;
+
     @Override
     public AlertScreenBase clickOnContinueOK() {
         return null;
@@ -92,8 +95,9 @@ public class CatalogHome extends CatalogHomeScreenBase {
     }
 
     @Override
-    public void clickOnSortingItem() {
-
+    public SortingAlertPanelBase clickOnSortingItem() {
+        sortingOrderButton.click();
+        return initPage(getDriver(),SortingAlertPanelBase.class);
     }
 
     @Override
@@ -151,6 +155,10 @@ public class CatalogHome extends CatalogHomeScreenBase {
         return headerScreenView.isElementPresent();
     }
 
+    @Override
+    public void swipeUp() {
+        swipe(testTShirt);
+    }
 
 }
 

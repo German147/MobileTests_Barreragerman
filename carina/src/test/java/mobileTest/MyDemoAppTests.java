@@ -4,10 +4,16 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
+import mobileTest.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -292,6 +298,42 @@ public class MyDemoAppTests implements IAbstractTest {
         assertEquals(catalogTitle, "Products", "The catalog is not opened");
     }
 
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "Check  the name ascending order button", value = {"Mobile", "Practice"})
+    public void testAscendingNameOrderButton() {
+
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+        SortingProductName sort = new SortingProductName(getDriver());
+        homePage.swipeUp();
+        List<WebElement> firstProducts = sort.gettingProductsName();
+        System.out.println("Aqui imprimimos la lista");
+        for (WebElement data : firstProducts) {
+            System.out.println(data.getText());
+        }
+
+        System.out.println(" ");
+        System.out.println("Implemento el de sort de la primer lista");
+        List<String> firstSortedElements = sort.sortProductTextsFunction(firstProducts);
+        for (String data : firstSortedElements) {
+            System.out.println(data);
+        }
+
+        SortingAlertPanelBase panel = homePage.clickOnSortingItem();
+        panel.clickOnAscendingName();
+        homePage.swipeUp();
+
+        List<WebElement> secondProducts = sort.gettingProductsName();
+        List<String> secondSortedElementsII = sort.sortProductTextsFunction(secondProducts);
+        System.out.println(" ");
+        System.out.println("Here I print the previous implemented array");
+        for (String data : secondSortedElementsII) {
+            System.out.println(data);
+        }
+        Assert.assertEquals(secondSortedElementsII, firstSortedElements, "The products were not sorted by Ascending name");
+    }
 
 
 }
