@@ -345,20 +345,12 @@ public class MyDemoAppTests implements IAbstractTest {
         System.out.println("Obteniendo lista...descendente");
         List<WebElement> productsName = sort.gettingProductsName();
         List<String> reversedElements = sort.reverseOrderProductTextFunction(productsName);
-        for (String data : reversedElements) {
-            System.out.println(data.toString());
-        }
 
         List<String> expectedProductList = new ArrayList<>();
         expectedProductList.add("Test.sllTheThings() T-Shirt");
         expectedProductList.add("Sauce Lab Onesie");
         expectedProductList.add("Sauce Lab Fleece T-Shirt");
         expectedProductList.add("Sauce Lab Bolt T-Shirt");
-        System.out.println(" ");
-        System.out.println("La lista esperada");
-        for (String data : expectedProductList) {
-            System.out.println(data.toString());
-        }
 
         Assert.assertEquals(reversedElements, expectedProductList, "The list was not sorted in descending name");
 
