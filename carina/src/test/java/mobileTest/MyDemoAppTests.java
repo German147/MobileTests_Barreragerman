@@ -388,5 +388,36 @@ public class MyDemoAppTests implements IAbstractTest {
 
         Assert.assertEquals(numberPrice,expectedPrices,"The prices were not sorted in descendent order");
     }
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "check Price Ascending  button", value = {"Mobile", "Practice"})
+    public void testAscendingPriceButton() {
+
+        CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
+
+        SortingAlertPanelBase panel= homepage.clickOnSortingItem();
+        panel.clickOnPriceAscendingOrder();
+
+        SortingProductName sort = new SortingProductName(getDriver());
+        List<WebElement> priceList = sort.gettingPriceList();
+        for (WebElement data : priceList) {
+            System.out.println(data.getText());
+        }
+
+        System.out.println("Number without dollar symbol");
+        List<String> numberPrice = sort.removeDollarSymbol(priceList);
+        for (String data:numberPrice) {
+            System.out.println(data.toString());
+        }
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add("7.99");
+        expectedResult.add("9.99");
+        expectedResult.add("15.99");
+        expectedResult.add("15.99");
+
+        Assert.assertEquals(numberPrice,expectedResult,"The price was not sorted");
+
+    }
 
 }
