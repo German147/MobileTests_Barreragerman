@@ -21,4 +21,8 @@ public abstract class SortingProductNameBase extends AbstractPage implements IMo
     public abstract List<String> reverseOrderProductTextFunction(List<WebElement> elements);
 
     public abstract void swipeUp();
+
+    public abstract List<WebElement> gettingPriceList();
+
+    public abstract List<String> removeDollarSymbol(List<WebElement> elements);
 }

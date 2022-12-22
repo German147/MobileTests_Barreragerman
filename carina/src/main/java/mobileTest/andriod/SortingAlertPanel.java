@@ -18,6 +18,9 @@ public class SortingAlertPanel extends SortingAlertPanelBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/nameDesCL")
     private ExtendedWebElement nameDescendingOrder;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuPriceDscIV")
+    private ExtendedWebElement priceDescending;
+
     @Override
     public void clickOnAscendingName() {
         nameAscendingOrder.click();
@@ -35,6 +38,6 @@ public class SortingAlertPanel extends SortingAlertPanelBase {
 
     @Override
     public void clickOnPriceDescendingOption() {
-
+        priceDescending.click();
     }
 }

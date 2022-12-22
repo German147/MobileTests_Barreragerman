@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.agent.core.annotation.TestLabel;
+import mobileTest.andriod.SortingAlertPanel;
 import mobileTest.common.*;
 import mobileTest.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
@@ -354,6 +355,38 @@ public class MyDemoAppTests implements IAbstractTest {
 
         Assert.assertEquals(reversedElements, expectedProductList, "The list was not sorted in descending name");
 
+    }
+
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "check Price Descending name button", value = {"Mobile", "Practice"})
+    public void testDescendingPriceButton() {
+
+        CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
+
+        SortingAlertPanelBase panel= homepage.clickOnSortingItem();
+        panel.clickOnPriceDescendingOption();
+
+        SortingProductName sort = new SortingProductName(getDriver());
+        List<WebElement> priceList = sort.gettingPriceList();
+        for (WebElement data : priceList) {
+            System.out.println(data.getText());
+        }
+
+        System.out.println("Number without dollar symbol");
+        List<String> numberPrice = sort.removeDollarSymbol(priceList);
+        for (String data:numberPrice) {
+            System.out.println(data.toString());
+        }
+
+        List<String> expectedPrices = new ArrayList<>();
+        expectedPrices.add("49.99");
+        expectedPrices.add("29.99");
+        expectedPrices.add("15.99");
+        expectedPrices.add("15.99");
+
+        Assert.assertEquals(numberPrice,expectedPrices,"The prices were not sorted in descendent order");
     }
 
 }

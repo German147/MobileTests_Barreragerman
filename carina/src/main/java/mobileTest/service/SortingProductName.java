@@ -23,6 +23,9 @@ public class SortingProductName extends SortingProductNameBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/LinkedInIV")
     private ExtendedWebElement linkedInIcon;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/priceTV")
+    private ExtendedWebElement prices;
+
     public SortingProductName(WebDriver driver) {
         super(driver);
     }
@@ -31,6 +34,22 @@ public class SortingProductName extends SortingProductNameBase {
         List<WebElement> elements = getDriver().findElements(productNames.getBy());
         return elements;
     }
+
+    @Override
+    public List<WebElement> gettingPriceList() {
+        List<WebElement> pricesList = getDriver().findElements(prices.getBy());
+        return pricesList;
+    }
+
+    @Override
+    public List<String> removeDollarSymbol(List<WebElement> elements) {
+        List<String> elementsToString = new ArrayList<>();
+        for (WebElement data : elements) {
+            elementsToString.add(data.getText().replace("$ ", ""));
+        }
+        return elementsToString;
+    }
+
 
     public List<String> sortProductTextsFunction(List<WebElement> elements) {
         List<String> sortedElements = new ArrayList<>();
@@ -60,9 +79,11 @@ public class SortingProductName extends SortingProductNameBase {
         Collections.sort(reverseOrderedElement, Collections.reverseOrder());
         return reverseOrderedElement;
     }
+
     @Override
-    public void swipeUp(){
+    public void swipeUp() {
         swipe(linkedInIcon);
     }
+
 
 }
