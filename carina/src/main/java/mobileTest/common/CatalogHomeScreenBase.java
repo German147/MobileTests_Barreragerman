@@ -30,11 +30,12 @@ public abstract class CatalogHomeScreenBase extends AbstractPage implements IMob
 
     public abstract String checkSubmitButton();
 
-   // public abstract ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException;
+    // public abstract ProductDetailsScreenBase productFactory(EnumProducts product) throws ProductNotFoundException;
 
     public abstract ProductDetailsScreenBase selectProduct(String product);
 
     public abstract boolean isPageOpened();
-    public  abstract void swipeUp();
+
+    public abstract void swipeUp();
 
 }

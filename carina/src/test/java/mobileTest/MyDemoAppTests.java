@@ -2,12 +2,14 @@ package mobileTest;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import mobileTest.common.*;
 import mobileTest.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -302,21 +304,22 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "Check  the name ascending order button", value = {"Mobile", "Practice"})
     public void testAscendingNameOrderButton() {
-
+/**As a precondition the main catalog must be in ascending name order
+ * */
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
 
         SortingProductName sort = new SortingProductName(getDriver());
         homePage.swipeUp();
-        List<WebElement> firstProducts = sort.gettingProductsName();
+        List<WebElement> getFirstProducts = sort.gettingProductsName();
         System.out.println("Aqui imprimimos la lista");
-        for (WebElement data : firstProducts) {
+        for (WebElement data : getFirstProducts) {
             System.out.println(data.getText());
         }
 
         System.out.println(" ");
         System.out.println("Implemento el de sort de la primer lista");
-        List<String> firstSortedElements = sort.sortProductTextsFunction(firstProducts);
+        List<String> firstSortedElements = sort.sortProductTextsFunction(getFirstProducts);
         for (String data : firstSortedElements) {
             System.out.println(data);
         }
@@ -330,10 +333,48 @@ public class MyDemoAppTests implements IAbstractTest {
         System.out.println(" ");
         System.out.println("Here I print the previous implemented array");
         for (String data : secondSortedElementsII) {
-            System.out.println(data);
+            System.out.println(data.toString());
         }
         Assert.assertEquals(secondSortedElementsII, firstSortedElements, "The products were not sorted by Ascending name");
     }
 
+    @Test
+    @MethodOwner(owner = "barreraGerman")
+    @TestLabel(name = "Check  the name descending order button", value = {"Mobile", "Practice"})
+    public void testDescendingNameOrderButton() {
+
+        CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
+        Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
+
+        SortingProductName sort = new SortingProductName(getDriver());
+        SortingAlertPanelBase panel = homePage.clickOnSortingItem();
+        panel.clickOnDescendingName();
+        System.out.println("Entrando al thread...");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Obteniendo lista...descendente");
+        List<WebElement> productsName = sort.gettingProductsName();
+        List<String> reversedElements = sort.reverseOrderProductTextFunction(productsName);
+        for (String data:reversedElements) {
+            System.out.println(data.toString());
+        }
+
+        List<String> expectedProductList = new ArrayList<>();
+        expectedProductList.add("Test.sllTheThings() T-Shirt");
+        expectedProductList.add("Sauce Lab Onesie");
+        expectedProductList.add("Sauce Lab Fleece T-Shirt");
+        expectedProductList.add("Sauce Lab Bolt T-Shirt");
+        System.out.println(" ");
+        System.out.println("La lista esperada");
+        for (String data:expectedProductList) {
+            System.out.println(data.toString());
+        }
+
+        Assert.assertEquals(reversedElements,expectedProductList,"The list was not sorted in descending name");
+
+    }
 
 }

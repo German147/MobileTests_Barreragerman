@@ -17,6 +17,12 @@ public class SortingProductName extends SortingProductNameBase {
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/titleTV")
     private ExtendedWebElement productNames;
 
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/titleTV")
+    private ExtendedWebElement labOnesie;
+
+    @FindBy(id = "com.saucelabs.mydemoapp.android:id/LinkedInIV")
+    private ExtendedWebElement linkedInIcon;
+
     public SortingProductName(WebDriver driver) {
         super(driver);
     }
@@ -43,6 +49,20 @@ public class SortingProductName extends SortingProductNameBase {
         }
         Collections.sort(firstSortedElements);
         return firstSortedElements;
+    }
+
+    @Override
+    public List<String> reverseOrderProductTextFunction(List<WebElement> elements) {
+        List<String> reverseOrderedElement = new ArrayList<>();
+        for (WebElement data : elements) {
+            reverseOrderedElement.add(data.getText());
+        }
+        Collections.sort(reverseOrderedElement, Collections.reverseOrder());
+        return reverseOrderedElement;
+    }
+    @Override
+    public void swipeUp(){
+        swipe(linkedInIcon);
     }
 
 }

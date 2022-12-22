@@ -153,5 +153,10 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     }
 
+    @Override
+    public boolean swipe(ExtendedWebElement element) {
+        return false;
+    }
+
 
 }
