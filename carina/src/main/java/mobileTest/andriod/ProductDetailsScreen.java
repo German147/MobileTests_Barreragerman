@@ -2,12 +2,10 @@ package mobileTest.andriod;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.annotations.Predicate;
 import mobileTest.common.AlertScreenBase;
 import mobileTest.common.ProductDetailsScreenBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductDetailsScreenBase.class)
 public class ProductDetailsScreen extends ProductDetailsScreenBase {
@@ -45,13 +43,13 @@ public class ProductDetailsScreen extends ProductDetailsScreenBase {
     private ExtendedWebElement addToCartButton;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/productTV")
-    private ExtendedWebElement productTitle;
+    private ExtendedWebElement productTitleAndroid;
 
 
 
     @Override
     public String getProductTitle() {
-        return productTitle.getText();
+        return productTitleAndroid.getText();
     }
 
     @Override
