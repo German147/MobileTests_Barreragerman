@@ -2,26 +2,24 @@ package mobileTest;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.agent.core.annotation.TestLabel;
-import mobileTest.andriod.SortingAlertPanel;
+import io.appium.java_client.AppiumDriver;
 import mobileTest.common.*;
 import mobileTest.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
 public class MyDemoAppTests implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(MyDemoAppTests.class);
+
 
     /*
       In order to test the app here are the products available:
@@ -365,7 +363,7 @@ public class MyDemoAppTests implements IAbstractTest {
         CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
 
-        SortingAlertPanelBase panel= homepage.clickOnSortingItem();
+        SortingAlertPanelBase panel = homepage.clickOnSortingItem();
         panel.clickOnPriceDescendingOption();
 
         SortingProductName sort = new SortingProductName(getDriver());
@@ -376,7 +374,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
         System.out.println("Number without dollar symbol");
         List<String> numberPrice = sort.removeDollarSymbol(priceList);
-        for (String data:numberPrice) {
+        for (String data : numberPrice) {
             System.out.println(data.toString());
         }
 
@@ -386,8 +384,44 @@ public class MyDemoAppTests implements IAbstractTest {
         expectedPrices.add("15.99");
         expectedPrices.add("15.99");
 
-        Assert.assertEquals(numberPrice,expectedPrices,"The prices were not sorted in descendent order");
+        Assert.assertEquals(numberPrice, expectedPrices, "The prices were not sorted in descendent order");
     }
+
+    AppiumDriver driver;
+
+//    @BeforeTest
+//    public void bsSetUp() throws MalformedURLException {
+//
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//
+//        // Set your access credentials
+//        caps.setCapability("browserstack.user", "luisbarrera_QxbVYO");
+//        caps.setCapability("browserstack.key", "s9cSmh5Asq9yaDVimsSH");
+//
+//        // Set URL of the application under test
+//        caps.setCapability("app", "bs://367207584950b2d15b56e85da667be52dae243fd");
+//
+//        // Specify device and os_version for testing
+//        caps.setCapability("device", "Google Pixel 3");
+//        caps.setCapability("os_version", "9.0");
+//
+//        // Set other BrowserStack capabilities
+//        caps.setCapability("project", "First Java Project");
+//        caps.setCapability("build", "browserstack-build-1");
+//        caps.setCapability("name", "first_test");
+//
+//
+//        // Initialise the remote Webdriver using BrowserStack remote URL
+//        // and desired capabilities defined above
+//       driver = new AndroidDriver(
+//                new URL("http://hub.browserstack.com/wd/hub"), caps);
+//
+//        // Write your test case statements here
+//
+//        // Invoke driver.quit() after the test is done to indicate that the test is completed.
+//        // driver.quit();
+//    }
+
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "check Price Ascending  button", value = {"Mobile", "Practice"})
@@ -395,8 +429,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
         CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
-
-        SortingAlertPanelBase panel= homepage.clickOnSortingItem();
+        SortingAlertPanelBase panel = homepage.clickOnSortingItem();
         panel.clickOnPriceAscendingOrder();
 
         SortingProductName sort = new SortingProductName(getDriver());
@@ -407,7 +440,7 @@ public class MyDemoAppTests implements IAbstractTest {
 
         System.out.println("Number without dollar symbol");
         List<String> numberPrice = sort.removeDollarSymbol(priceList);
-        for (String data:numberPrice) {
+        for (String data : numberPrice) {
             System.out.println(data.toString());
         }
         List<String> expectedResult = new ArrayList<>();
@@ -416,7 +449,7 @@ public class MyDemoAppTests implements IAbstractTest {
         expectedResult.add("15.99");
         expectedResult.add("15.99");
 
-        Assert.assertEquals(numberPrice,expectedResult,"The price was not sorted");
+        Assert.assertEquals(numberPrice, expectedResult, "The price was not sorted");
 
     }
 
