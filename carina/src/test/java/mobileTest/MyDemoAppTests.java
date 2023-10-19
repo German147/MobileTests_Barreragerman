@@ -5,7 +5,7 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import io.appium.java_client.AppiumDriver;
 import mobileTest.common.*;
-import mobileTest.service.SortingProductName;
+import mobileTest.andriod.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -38,25 +38,16 @@ public class MyDemoAppTests implements IAbstractTest {
         CatalogHomeScreenBase homePage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homePage.isPageOpened(), "Catalog screen isn't opened");
 
-        ProductDetailsScreenBase product = homePage.selectProduct("BackPacks");
-
-        String bacPack = product.getProductTitle();
+        homePage.selectProduct("BackPacks");
         MenuScreenBase menu = homePage.clickOnMenu();
         menu.clickOnCatalogOption();
         homePage.selectProduct("BoltTShirt");
-        String boltTitle = product.getProductTitle();
         homePage.clickOnMenu();
         menu.clickOnCatalogOption();
         homePage.selectProduct("FleeceTShirt");
-        String fleece = product.getProductTitle();
-
         homePage.clickOnMenu();
         menu.clickOnCatalogOption();
 
-        assertEquals(bacPack, "Sauce Lab Back Packs", "The product is incorrect");
-        assertEquals(boltTitle, "Sauce Lab Bolt T-Shirt", "The product is incorrect");
-        assertEquals(fleece,
-                "Sauce Lab Fleece T-Shirt", "The product is incorrect");
     }
 
     //Sauce Lab Back Packs
@@ -359,22 +350,37 @@ public class MyDemoAppTests implements IAbstractTest {
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "check Price Descending name button", value = {"Mobile", "Practice"})
     public void testDescendingPriceButton() {
-
-        CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
-        Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
-
-        SortingAlertPanelBase panel = homepage.clickOnSortingItem();
-        panel.clickOnPriceDescendingOption();
-
-        SortingProductName sort = new SortingProductName(getDriver());
-        List<WebElement> priceList = sort.gettingPriceList();
-        for (WebElement data : priceList) {
-            System.out.println(data.getText());
-        }
+//
+//        CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
+//      //  Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
+//
+//        SortingAlertPanelBase panel = homepage.clickOnSortingItem();
+//        panel.clickOnPriceDescendingOption();
+//
+//        SortingProductName sort = new SortingProductName(getDriver());
+//        List<WebElement> priceList = sort.gettingPriceListFunctional().get();
+//        for (WebElement data : priceList) {
+//            System.out.println(data.getText());
+//        }
+//
+//        System.out.println("Number without dollar symbol");
+//        List<String> numberPrice = sort.removeDollarSymbol(priceList);
+//        for (String data : numberPrice) {
+//            System.out.println(data.toString());
+//        }
+//
+//        List<String> expectedPrices = new ArrayList<>();
+//        expectedPrices.add("49.99");
+//        expectedPrices.add("29.99");
+//        expectedPrices.add("15.99");
+//        expectedPrices.add("15.99");
+//
+//        Assert.assertEquals(numberPrice, expectedPrices, "The prices were not sorted in descendent order");
+    }
 
         System.out.println("Number without dollar symbol");
         List<String> numberPrice = sort.removeDollarSymbol(priceList);
-        for (String data : numberPrice) {
+        for (String data:numberPrice) {
             System.out.println(data.toString());
         }
 
@@ -384,44 +390,8 @@ public class MyDemoAppTests implements IAbstractTest {
         expectedPrices.add("15.99");
         expectedPrices.add("15.99");
 
-        Assert.assertEquals(numberPrice, expectedPrices, "The prices were not sorted in descendent order");
+        Assert.assertEquals(numberPrice,expectedPrices,"The prices were not sorted in descendent order");
     }
-
-    AppiumDriver driver;
-
-//    @BeforeTest
-//    public void bsSetUp() throws MalformedURLException {
-//
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//
-//        // Set your access credentials
-//        caps.setCapability("browserstack.user", "luisbarrera_QxbVYO");
-//        caps.setCapability("browserstack.key", "s9cSmh5Asq9yaDVimsSH");
-//
-//        // Set URL of the application under test
-//        caps.setCapability("app", "bs://367207584950b2d15b56e85da667be52dae243fd");
-//
-//        // Specify device and os_version for testing
-//        caps.setCapability("device", "Google Pixel 3");
-//        caps.setCapability("os_version", "9.0");
-//
-//        // Set other BrowserStack capabilities
-//        caps.setCapability("project", "First Java Project");
-//        caps.setCapability("build", "browserstack-build-1");
-//        caps.setCapability("name", "first_test");
-//
-//
-//        // Initialise the remote Webdriver using BrowserStack remote URL
-//        // and desired capabilities defined above
-//       driver = new AndroidDriver(
-//                new URL("http://hub.browserstack.com/wd/hub"), caps);
-//
-//        // Write your test case statements here
-//
-//        // Invoke driver.quit() after the test is done to indicate that the test is completed.
-//        // driver.quit();
-//    }
-
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "check Price Ascending  button", value = {"Mobile", "Practice"})

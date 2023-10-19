@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE,parentClass = CatalogHomeScreenBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = CatalogHomeScreenBase.class)
 public class CatalogHome extends CatalogHomeScreenBase {
 
     private static final String THIS_METHOD_IS_DEFINED_ONLY_IN_ANDROID = "This method is not yet implemented for iOS";
@@ -50,7 +50,6 @@ public class CatalogHome extends CatalogHomeScreenBase {
     private ExtendedWebElement allThingsShirt;
 
 
-
     public CatalogHome(WebDriver driver) {
         super(driver);
     }
@@ -86,7 +85,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
     @Override
     public SortingAlertPanelBase clickOnSortingItem() {
         sortingButton.click();
-        return initPage(getDriver(),SortingAlertPanelBase.class);
+        return initPage(getDriver(), SortingAlertPanelBase.class);
     }
 
     @Override
@@ -114,30 +113,29 @@ public class CatalogHome extends CatalogHomeScreenBase {
         switch (product) {
             case "BackPacks":
                 backPack.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
             case "BikeLight":
                 System.out.println("This product crash the app");
                 bikeLight.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
             case "BoltTShirt":
                 tShirtBolt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
             case "FleeceTShirt":
                 fleeceTShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
             case "OnesieTShirt":
                 onesieShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
             case "AllThingsTShirt":
                 allThingsShirt.click();
-                initPage(getDriver(),ProductDetailsScreenBase.class);
-                break;
-            default:
+                return initPage(getDriver(), ProductDetailsScreenBase.class);
+
         }
         return new ProductDetailsScreen(getDriver());
     }
@@ -145,7 +143,7 @@ public class CatalogHome extends CatalogHomeScreenBase {
 
     @Override
     public boolean isPageOpened() {
-        return false;
+        return menuOption.isElementPresent();
     }
 
     @Override

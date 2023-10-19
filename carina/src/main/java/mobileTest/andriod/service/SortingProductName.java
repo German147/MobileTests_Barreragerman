@@ -1,4 +1,4 @@
-package mobileTest.service;
+package mobileTest.andriod.service;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
@@ -16,9 +16,6 @@ public class SortingProductName extends SortingProductNameBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/titleTV")
     private ExtendedWebElement productNames;
-
-    @FindBy(id = "com.saucelabs.mydemoapp.android:id/titleTV")
-    private ExtendedWebElement labOnesie;
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/LinkedInIV")
     private ExtendedWebElement linkedInIcon;
@@ -40,7 +37,7 @@ public class SortingProductName extends SortingProductNameBase {
         List<WebElement> pricesList = getDriver().findElements(prices.getBy());
         return pricesList;
     }
-
+    
     @Override
     public List<String> removeDollarSymbol(List<WebElement> elements) {
         List<String> elementsToString = new ArrayList<>();

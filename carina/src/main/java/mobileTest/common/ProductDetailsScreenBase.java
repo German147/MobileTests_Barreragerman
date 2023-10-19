@@ -4,13 +4,13 @@ import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
-public  abstract class ProductDetailsScreenBase extends AbstractPage implements IMobileUtils {
+public abstract class ProductDetailsScreenBase extends AbstractPage implements IMobileUtils {
 
     public ProductDetailsScreenBase(WebDriver driver) {
         super(driver);
     }
 
- public abstract String getProductTitle();
+    public abstract String getProductTitle();
 
     public abstract String getProductPrice();
 
