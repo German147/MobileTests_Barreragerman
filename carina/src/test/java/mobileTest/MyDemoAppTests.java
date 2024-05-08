@@ -3,6 +3,7 @@ package mobileTest;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.zebrunner.agent.core.annotation.TestLabel;
+import io.appium.java_client.AppiumDriver;
 import mobileTest.common.*;
 import mobileTest.andriod.service.SortingProductName;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +19,7 @@ import static org.testng.Assert.assertEquals;
 
 public class MyDemoAppTests implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(MyDemoAppTests.class);
+
 
     /*
       In order to test the app here are the products available:
@@ -376,6 +378,20 @@ public class MyDemoAppTests implements IAbstractTest {
 //        Assert.assertEquals(numberPrice, expectedPrices, "The prices were not sorted in descendent order");
     }
 
+        System.out.println("Number without dollar symbol");
+        List<String> numberPrice = sort.removeDollarSymbol(priceList);
+        for (String data:numberPrice) {
+            System.out.println(data.toString());
+        }
+
+        List<String> expectedPrices = new ArrayList<>();
+        expectedPrices.add("49.99");
+        expectedPrices.add("29.99");
+        expectedPrices.add("15.99");
+        expectedPrices.add("15.99");
+
+        Assert.assertEquals(numberPrice,expectedPrices,"The prices were not sorted in descendent order");
+    }
     @Test
     @MethodOwner(owner = "barreraGerman")
     @TestLabel(name = "check Price Ascending  button", value = {"Mobile", "Practice"})
@@ -383,7 +399,6 @@ public class MyDemoAppTests implements IAbstractTest {
 
         CatalogHomeScreenBase homepage = initPage(getDriver(), CatalogHomeScreenBase.class);
         Assert.assertTrue(homepage.isPageOpened(), "The home page was not opened");
-
         SortingAlertPanelBase panel = homepage.clickOnSortingItem();
         panel.clickOnPriceAscendingOrder();
 
